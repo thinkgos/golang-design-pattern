@@ -1,10 +1,5 @@
 package adapter
 
-//Target 是适配的目标接口
-type Target interface {
-	Request() string
-}
-
 //Adaptee 是被适配的目标接口
 type Adaptee interface {
 	SpecificRequest() string
@@ -23,16 +18,21 @@ func (*adapteeImpl) SpecificRequest() string {
 	return "adaptee method"
 }
 
-//NewAdapter 是Adapter的工厂函数
-func NewAdapter(adaptee Adaptee) Target {
-	return &adapter{
-		Adaptee: adaptee,
-	}
+//Target 是适配的目标接口
+type Target interface {
+	Request() string
 }
 
 //Adapter 是转换Adaptee为Target接口的适配器
 type adapter struct {
 	Adaptee
+}
+
+//NewAdapter 是Adapter的工厂函数
+func NewAdapter(adaptee Adaptee) Target {
+	return &adapter{
+		Adaptee: adaptee,
+	}
 }
 
 //Request 实现Target接口

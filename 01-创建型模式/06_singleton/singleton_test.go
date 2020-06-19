@@ -32,4 +32,3 @@ func TestParallelSingleton(t *testing.T) {
 		}
 	}
 }
-
