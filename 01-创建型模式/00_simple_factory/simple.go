@@ -7,11 +7,16 @@ type API interface {
 	Say(name string) string
 }
 
+const (
+	hi = iota
+	hello
+)
+
 //NewAPI return Api instance by type
 func NewAPI(t int) API {
-	if t == 1 {
+	if t == hi {
 		return &hiAPI{}
-	} else if t == 2 {
+	} else if t == hello {
 		return &helloAPI{}
 	}
 	return nil
