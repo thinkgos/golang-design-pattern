@@ -21,7 +21,7 @@ Go 语言设计模式的实例代码
 - [ ] [代理模式（Proxy）](https://github.com/senghoo/golang-design-pattern/tree/master/09_proxy)
 - [ ] [组合模式（Composite）](https://github.com/senghoo/golang-design-pattern/tree/master/13_composite)
 - [ ] [享元模式（Flyweight）](https://github.com/senghoo/golang-design-pattern/tree/master/18_flyweight)
-- [ ] [装饰模式（Decorator）](https://github.com/senghoo/golang-design-pattern/tree/master/20_decorator)
+- [x] [装饰模式（Decorator）](https://github.com/senghoo/golang-design-pattern/tree/master/20_decorator)
 - [ ] [桥模式（Bridge）](https://github.com/senghoo/golang-design-pattern/tree/master/22_bridge)
 
 ## 行为型模式
