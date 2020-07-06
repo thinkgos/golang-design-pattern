@@ -9,8 +9,8 @@ Go 语言设计模式的实例代码
 
 - [x] [简单工厂模式（Simple Factory）](https://github.com/senghoo/golang-design-pattern/tree/master/00_simple_factory)
 - [ ] [工厂方法模式（Factory Method）](https://github.com/senghoo/golang-design-pattern/tree/master/04_factory_method)
-- [ ] [抽象工厂模式（Abstract Factory）](https://github.com/senghoo/golang-design-pattern/tree/master/05_abstract_factory)
-- [ ] [创建者模式（Builder）](https://github.com/senghoo/golang-design-pattern/tree/master/06_builder)
+- [x] [抽象工厂模式（Abstract Factory）](https://github.com/senghoo/golang-design-pattern/tree/master/05_abstract_factory)
+- [x] [创建者模式（Builder）](https://github.com/senghoo/golang-design-pattern/tree/master/06_builder)
 - [x] [原型模式（Prototype）](https://github.com/senghoo/golang-design-pattern/tree/master/07_prototype)
 - [x] [单例模式（Singleton）](https://github.com/senghoo/golang-design-pattern/tree/master/03_singleton)
 
@@ -31,7 +31,7 @@ Go 语言设计模式的实例代码
 - [ ] [命令模式（Command）](https://github.com/senghoo/golang-design-pattern/tree/master/11_command)
 - [ ] [迭代器模式（Iterator）](https://github.com/senghoo/golang-design-pattern/tree/master/12_iterator)
 - [ ] [模板方法模式（Template Method）](https://github.com/senghoo/golang-design-pattern/tree/master/14_template_method)
-- [ ] [策略模式（Strategy）](https://github.com/senghoo/golang-design-pattern/tree/master/15_strategy)
+- [x] [策略模式（Strategy）](https://github.com/senghoo/golang-design-pattern/tree/master/15_strategy)
 - [ ] [状态模式（State）](https://github.com/senghoo/golang-design-pattern/tree/master/16_state)
 - [ ] [备忘录模式（Memento）](https://github.com/senghoo/golang-design-pattern/tree/master/17_memento)
 - [ ] [解释器模式（Interpreter）](https://github.com/senghoo/golang-design-pattern/tree/master/19_interpreter)
