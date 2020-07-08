@@ -12,7 +12,7 @@ type OperatorFactory interface {
 	Create() Operator
 }
 
-//OperatorBase 是Operator 接口实现的基类，封装公用方法
+// OperatorBase 是Operator 接口实现的基类，封装公用方法
 type OperatorBase struct {
 	a, b int
 }
@@ -30,7 +30,7 @@ func (PlusOperatorFactory) Create() Operator {
 	return &PlusOperator{&OperatorBase{}}
 }
 
-// PlusOperator Operator 的实际加法实现
+// PlusOperator Operator 的实际加法实现,子类延迟实现父类的相应方法
 type PlusOperator struct {
 	*OperatorBase
 }
@@ -45,7 +45,7 @@ func (MinusOperatorFactory) Create() Operator {
 	return &MinusOperator{&OperatorBase{}}
 }
 
-// MinusOperator Operator 的实际减法实现
+// MinusOperator Operator 的实际减法实现,子类延迟实现父类的相应方法
 type MinusOperator struct {
 	*OperatorBase
 }

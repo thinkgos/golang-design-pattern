@@ -12,6 +12,7 @@ type Context struct {
 	Strategy
 }
 
+// 调用不同的策略,实现不同的行为.
 func NewContext(strategy Strategy) *Context {
 	return &Context{
 		strategy,
