@@ -2,16 +2,19 @@ package facade
 
 import "fmt"
 
-func NewAPI() API {
-	return &apiImpl{
-		a: NewAModuleAPI(),
-		b: NewBModuleAPI(),
-	}
-}
-
 //API is facade interface of facade package
 type API interface {
 	Test() string
+}
+
+// AModuleAPI 细节1
+type AModuleAPI interface {
+	TestA() string
+}
+
+// BModuleAPI 细节2
+type BModuleAPI interface {
+	TestB() string
 }
 
 //facade implement
@@ -20,39 +23,36 @@ type apiImpl struct {
 	b BModuleAPI
 }
 
+func NewAPI() API {
+	return &apiImpl{
+		a: NewAModuleAPI(),
+		b: NewBModuleAPI(),
+	}
+}
+
 func (a *apiImpl) Test() string {
 	aRet := a.a.TestA()
 	bRet := a.b.TestB()
 	return fmt.Sprintf("%s\n%s", aRet, bRet)
 }
 
-//NewAModuleAPI return new AModuleAPI
+type aModuleImpl struct{}
+
+// NewAModuleAPI return new AModuleAPI
 func NewAModuleAPI() AModuleAPI {
 	return &aModuleImpl{}
 }
-
-//AModuleAPI ...
-type AModuleAPI interface {
-	TestA() string
-}
-
-type aModuleImpl struct{}
 
 func (*aModuleImpl) TestA() string {
 	return "A module running"
 }
 
+type bModuleImpl struct{}
+
 //NewBModuleAPI return new BModuleAPI
 func NewBModuleAPI() BModuleAPI {
 	return &bModuleImpl{}
 }
-
-//BModuleAPI ...
-type BModuleAPI interface {
-	TestB() string
-}
-
-type bModuleImpl struct{}
 
 func (*bModuleImpl) TestB() string {
 	return "B module running"
