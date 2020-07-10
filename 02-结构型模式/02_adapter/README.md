@@ -1,7 +1,14 @@
 # 适配器模式
 
+简单说明: 根据不同的接口, 改变对外暴露接口的行为.
+
+see [适配器模式](https://www.runoob.com/design-pattern/adapter-pattern.html)
+
+适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于结构型模式，它结合了两个独立接口的功能。
+这种模式涉及到一个单一的类，该类负责加入独立的或不兼容的接口功能。
+举个真实的例子，读卡器是作为内存卡和笔记本之间的适配器。您将内存卡插入读卡器，再将读卡器插入笔记本，这样就可以通过笔记本来读取内存卡。
+
+
 适配器模式用于转换一种接口适配另一种接口。
-
-实际使用中Adaptee一般为接口，并且使用工厂函数生成实例。
-
-在Adapter中匿名组合Adaptee接口，所以Adapter类也拥有SpecificRequest实例方法，又因为Go语言中非入侵式接口特征，其实Adapter也适配Adaptee接口。
+实际使用中Adapter一般为接口，并且使用工厂函数生成实例。
+在Adapter中匿名组合Adapter接口，所以Adapter类也拥有SpecificRequest实例方法，又因为Go语言中非入侵式接口特征，其实Adapter也适配Adapter接口。

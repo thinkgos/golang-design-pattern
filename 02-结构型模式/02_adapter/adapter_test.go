@@ -5,7 +5,7 @@ import "testing"
 var expect = "adaptee method"
 
 func TestAdapter(t *testing.T) {
-	adaptee := NewAdaptee()
+	adaptee := NewProvider()
 	target := NewAdapter(adaptee)
 	res := target.Request()
 	if res != expect {
