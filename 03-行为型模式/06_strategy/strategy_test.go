@@ -1,15 +1,15 @@
 package strategy
 
 func ExamplePayByCash() {
-	payment := NewContext(&Cash{})
-	payment.Do()
+	payment := NewPayment("Ada", "", 123, &Cash{})
+	payment.Pay()
 	// Output:
-	// Do by cash
+	// Pay $123 to Ada by cash
 }
 
 func ExamplePayByBank() {
-	payment := NewContext(&Bank{})
-	payment.Do()
+	payment := NewPayment("Bob", "0002", 888, &Bank{})
+	payment.Pay()
 	// Output:
-	// Do by bank account
+	// Pay $888 to Bob by bank account 0002
 }

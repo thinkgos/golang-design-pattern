@@ -2,34 +2,44 @@ package strategy
 
 import "fmt"
 
-// 抽象的策略
-type Strategy interface {
-	Do()
+type Payment struct {
+	context  *PaymentContext
+	strategy PaymentStrategy
 }
 
-// 实现一个上下文的类
-type Context struct {
-	Strategy
+type PaymentContext struct {
+	Name, CardID string
+	Money        int
 }
 
-// 调用不同的策略,实现不同的行为.
-func NewContext(strategy Strategy) *Context {
-	return &Context{
-		strategy,
+func NewPayment(name, cardid string, money int, strategy PaymentStrategy) *Payment {
+	return &Payment{
+		context: &PaymentContext{
+			Name:   name,
+			CardID: cardid,
+			Money:  money,
+		},
+		strategy: strategy,
 	}
 }
 
-// 策略1
-type Cash struct{}
-
-func (*Cash) Do() {
-	fmt.Printf("Do by cash")
+func (p *Payment) Pay() {
+	p.strategy.Pay(p.context)
 }
 
-// 策略2
+type PaymentStrategy interface {
+	Pay(*PaymentContext)
+}
+
+type Cash struct{}
+
+func (*Cash) Pay(ctx *PaymentContext) {
+	fmt.Printf("Pay $%d to %s by cash", ctx.Money, ctx.Name)
+}
+
 type Bank struct{}
 
-func (*Bank) Do() {
-	fmt.Printf("Do by bank account")
+func (*Bank) Pay(ctx *PaymentContext) {
+	fmt.Printf("Pay $%d to %s by bank account %s", ctx.Money, ctx.Name, ctx.CardID)
 
 }
