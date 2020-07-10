@@ -31,7 +31,7 @@ Go 语言设计模式的实例代码
 - [ ] [命令模式（Command）](https://github.com/senghoo/golang-design-pattern/tree/master/11_command)
 - [ ] [迭代器模式（Iterator）](https://github.com/senghoo/golang-design-pattern/tree/master/12_iterator)
 - [ ] [模板方法模式（Template Method）](https://github.com/senghoo/golang-design-pattern/tree/master/14_template_method)
-- [ ] [策略模式（Strategy）](https://github.com/senghoo/golang-design-pattern/tree/master/15_strategy)
+- [x] [策略模式（Strategy）](https://github.com/senghoo/golang-design-pattern/tree/master/15_strategy)
 - [ ] [状态模式（State）](https://github.com/senghoo/golang-design-pattern/tree/master/16_state)
 - [ ] [备忘录模式（Memento）](https://github.com/senghoo/golang-design-pattern/tree/master/17_memento)
 - [ ] [解释器模式（Interpreter）](https://github.com/senghoo/golang-design-pattern/tree/master/19_interpreter)

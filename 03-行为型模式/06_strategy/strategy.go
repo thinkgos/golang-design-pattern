@@ -2,21 +2,26 @@ package strategy
 
 import "fmt"
 
+type Strategy interface {
+	Pay(*PaymentContext)
+}
+
 type Payment struct {
 	context  *PaymentContext
-	strategy PaymentStrategy
+	strategy Strategy
 }
 
 type PaymentContext struct {
-	Name, CardID string
-	Money        int
+	Name   string
+	CardID string
+	Money  int
 }
 
-func NewPayment(name, cardid string, money int, strategy PaymentStrategy) *Payment {
+func NewPayment(name, cardId string, money int, strategy Strategy) *Payment {
 	return &Payment{
 		context: &PaymentContext{
 			Name:   name,
-			CardID: cardid,
+			CardID: cardId,
 			Money:  money,
 		},
 		strategy: strategy,
@@ -25,10 +30,6 @@ func NewPayment(name, cardid string, money int, strategy PaymentStrategy) *Payme
 
 func (p *Payment) Pay() {
 	p.strategy.Pay(p.context)
-}
-
-type PaymentStrategy interface {
-	Pay(*PaymentContext)
 }
 
 type Cash struct{}
@@ -41,5 +42,4 @@ type Bank struct{}
 
 func (*Bank) Pay(ctx *PaymentContext) {
 	fmt.Printf("Pay $%d to %s by bank account %s", ctx.Money, ctx.Name, ctx.CardID)
-
 }
