@@ -27,7 +27,7 @@ Go 语言设计模式的实例代码
 ## 行为型模式
 
 - [ ] [中介者模式（Mediator）](https://github.com/senghoo/golang-design-pattern/tree/master/08_mediator)
-- [ ] [观察者模式（Observer）](https://github.com/senghoo/golang-design-pattern/tree/master/10_observer)
+- [x] [观察者模式（Observer）](https://github.com/senghoo/golang-design-pattern/tree/master/10_observer)
 - [ ] [命令模式（Command）](https://github.com/senghoo/golang-design-pattern/tree/master/11_command)
 - [ ] [迭代器模式（Iterator）](https://github.com/senghoo/golang-design-pattern/tree/master/12_iterator)
 - [ ] [模板方法模式（Template Method）](https://github.com/senghoo/golang-design-pattern/tree/master/14_template_method)
