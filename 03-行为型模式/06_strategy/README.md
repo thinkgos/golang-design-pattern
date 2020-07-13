@@ -1,5 +1,7 @@
 # 策略模式
 
+see [策略模式](https://www.runoob.com/design-pattern/strategy-pattern.html)
+
 和适配器模式有点类似
 
 定义一系列算法，让这些算法在运行时可以互换，使得分离算法，符合开闭原则。  

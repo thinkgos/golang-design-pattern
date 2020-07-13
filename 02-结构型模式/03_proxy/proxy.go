@@ -1,17 +1,25 @@
 package proxy
 
+// 统一接口
 type Subject interface {
 	Do() string
 }
 
+// 真实实例
 type RealSubject struct{}
 
 func (RealSubject) Do() string {
 	return "real"
 }
 
+// 代理实现
 type Proxy struct {
 	real RealSubject
+}
+
+// 创建代理
+func New(rs RealSubject) *Proxy {
+	return &Proxy{rs}
 }
 
 func (p Proxy) Do() string {

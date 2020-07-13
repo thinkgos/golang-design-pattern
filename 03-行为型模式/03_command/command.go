@@ -2,10 +2,23 @@ package command
 
 import "fmt"
 
+// 执行命令的接口
 type Command interface {
 	Execute()
 }
 
+// 命令包裹的对象实例
+type MotherBoard struct{}
+
+func (*MotherBoard) Start() {
+	fmt.Print("system starting\n")
+}
+
+func (*MotherBoard) Reboot() {
+	fmt.Print("system rebooting\n")
+}
+
+// 封装主板的 启动命令实例
 type StartCommand struct {
 	mb *MotherBoard
 }
@@ -20,6 +33,7 @@ func (c *StartCommand) Execute() {
 	c.mb.Start()
 }
 
+// 封装主板的, 重启命令实例
 type RebootCommand struct {
 	mb *MotherBoard
 }
@@ -34,16 +48,7 @@ func (c *RebootCommand) Execute() {
 	c.mb.Reboot()
 }
 
-type MotherBoard struct{}
-
-func (*MotherBoard) Start() {
-	fmt.Print("system starting\n")
-}
-
-func (*MotherBoard) Reboot() {
-	fmt.Print("system rebooting\n")
-}
-
+// 主机,绑定命令,实现调度
 type Box struct {
 	buttion1 Command
 	buttion2 Command
