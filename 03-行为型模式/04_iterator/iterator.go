@@ -6,6 +6,7 @@ type Aggregate interface {
 	Iterator() Iterator
 }
 
+// 迭代要实现的方法,隐藏实现
 type Iterator interface {
 	First()
 	IsDone() bool
@@ -13,7 +14,8 @@ type Iterator interface {
 }
 
 type Numbers struct {
-	start, end int
+	start int
+	end   int
 }
 
 func NewNumbers(start, end int) *Numbers {
@@ -23,6 +25,7 @@ func NewNumbers(start, end int) *Numbers {
 	}
 }
 
+// 转换成迭代器
 func (n *Numbers) Iterator() Iterator {
 	return &NumbersIterator{
 		numbers: n,

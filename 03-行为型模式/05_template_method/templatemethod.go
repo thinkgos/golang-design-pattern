@@ -6,14 +6,16 @@ type Downloader interface {
 	Download(uri string)
 }
 
-type template struct {
-	implement
-	uri string
-}
-
+// 模板实现接口
 type implement interface {
 	download()
 	save()
+}
+
+// 父类模板
+type template struct {
+	implement
+	uri string
 }
 
 func newTemplate(impl implement) *template {
@@ -34,14 +36,14 @@ func (t *template) save() {
 	fmt.Print("default save\n")
 }
 
+// 继承父类实现http
 type HTTPDownloader struct {
 	*template
 }
 
 func NewHTTPDownloader() Downloader {
 	downloader := &HTTPDownloader{}
-	template := newTemplate(downloader)
-	downloader.template = template
+	downloader.template = newTemplate(downloader) // 持子类实现
 	return downloader
 }
 
@@ -53,14 +55,14 @@ func (*HTTPDownloader) save() {
 	fmt.Printf("http save\n")
 }
 
+// 继承父类实现ftp
 type FTPDownloader struct {
 	*template
 }
 
 func NewFTPDownloader() Downloader {
 	downloader := &FTPDownloader{}
-	template := newTemplate(downloader)
-	downloader.template = template
+	downloader.template = newTemplate(downloader)
 	return downloader
 }
 
