@@ -29,6 +29,7 @@ func NewComponent(kind int, name string) Component {
 	return c
 }
 
+// 组合父类方法实现
 type component struct {
 	parent Component
 	name   string
@@ -54,6 +55,7 @@ func (c *component) AddChild(Component) {}
 
 func (c *component) Print(string) {}
 
+// 叶子实现
 type Leaf struct {
 	component
 }
@@ -66,6 +68,7 @@ func (c *Leaf) Print(pre string) {
 	fmt.Printf("%s-%s\n", pre, c.Name())
 }
 
+// 节点实现
 type Composite struct {
 	component
 	childs []Component
