@@ -6,27 +6,7 @@ type ImageFlyweightFactory struct {
 	maps map[string]*ImageFlyweight
 }
 
-var imageFactory *ImageFlyweightFactory
-
-func GetImageFlyweightFactory() *ImageFlyweightFactory {
-	if imageFactory == nil {
-		imageFactory = &ImageFlyweightFactory{
-			maps: make(map[string]*ImageFlyweight),
-		}
-	}
-	return imageFactory
-}
-
-func (f *ImageFlyweightFactory) Get(filename string) *ImageFlyweight {
-	image := f.maps[filename]
-	if image == nil {
-		image = NewImageFlyweight(filename)
-		f.maps[filename] = image
-	}
-
-	return image
-}
-
+// 共享不变的数据,用于复用
 type ImageFlyweight struct {
 	data string
 }
@@ -43,6 +23,23 @@ func (i *ImageFlyweight) Data() string {
 	return i.data
 }
 
+// 单例管理共享不变的数据
+var imageFactory = &ImageFlyweightFactory{make(map[string]*ImageFlyweight)}
+
+func GetImageFlyweightFactory() *ImageFlyweightFactory {
+	return imageFactory
+}
+
+func (f *ImageFlyweightFactory) Get(filename string) *ImageFlyweight {
+	image := f.maps[filename]
+	if image == nil {
+		image = NewImageFlyweight(filename)
+		f.maps[filename] = image
+	}
+	return image
+}
+
+// 调用实例
 type ImageViewer struct {
 	*ImageFlyweight
 }
