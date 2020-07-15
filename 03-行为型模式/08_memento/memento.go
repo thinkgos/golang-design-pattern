@@ -2,13 +2,18 @@ package memento
 
 import "fmt"
 
-type Memento interface{}
-
-type Game struct {
+// 保存对象的状态
+type Memento struct {
 	hp, mp int
 }
 
-type gameMemento struct {
+// 状态
+func (m *Memento) Status() string {
+	return fmt.Sprintf("Current HP:%d, MP:%d", m.hp, m.mp)
+}
+
+// 对象
+type Game struct {
 	hp, mp int
 }
 
@@ -17,19 +22,21 @@ func (g *Game) Play(mpDelta, hpDelta int) {
 	g.hp += hpDelta
 }
 
-func (g *Game) Save() Memento {
-	return &gameMemento{
+// 保存至备忘录
+func (g *Game) Save() *Memento {
+	return &Memento{
 		hp: g.hp,
 		mp: g.mp,
 	}
 }
 
-func (g *Game) Load(m Memento) {
-	gm := m.(*gameMemento)
-	g.mp = gm.mp
-	g.hp = gm.hp
+// 从备忘录恢复
+func (g *Game) Load(m *Memento) {
+	g.mp = m.mp
+	g.hp = m.hp
 }
 
-func (g *Game) Status() {
-	fmt.Printf("Current HP:%d, MP:%d\n", g.hp, g.mp)
+// 状态
+func (g *Game) Status() string {
+	return fmt.Sprintf("Current HP:%d, MP:%d", g.hp, g.mp)
 }

@@ -1,19 +1,23 @@
 package memento
 
+import (
+	"fmt"
+)
+
 func ExampleGame() {
 	game := &Game{
 		hp: 10,
 		mp: 10,
 	}
 
-	game.Status()
-	progress := game.Save()
+	fmt.Println(game.Status())
+	progress := game.Save() // 保存至备忘录
 
 	game.Play(-2, -3)
-	game.Status()
+	fmt.Println(game.Status())
 
-	game.Load(progress)
-	game.Status()
+	game.Load(progress) // 从备忘录恢复
+	fmt.Println(game.Status())
 
 	// Output:
 	// Current HP:10, MP:10
