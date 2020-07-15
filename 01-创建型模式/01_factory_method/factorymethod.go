@@ -17,7 +17,7 @@ type OperatorBase struct {
 	a, b int
 }
 
-//SetA 设置 A
+// SetA 设置 A
 func (o *OperatorBase) SetA(a int) { o.a = a }
 
 //SetB 设置 B
