@@ -2,13 +2,12 @@ package adapter
 
 import "testing"
 
-var expect = "adaptee method"
-
 func TestAdapter(t *testing.T) {
-	adaptee := NewProvider()
-	target := NewAdapter(adaptee)
-	res := target.Request()
-	if res != expect {
+	expect := "Provider method"
+	provider := NewProvider()
+	target := NewAdapter(provider)
+
+	if res := target.Request(); res != expect {
 		t.Fatalf("expect: %s, actual: %s", expect, res)
 	}
 }

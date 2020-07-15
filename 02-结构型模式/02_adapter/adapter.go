@@ -10,7 +10,8 @@ type Provider interface {
 	SpecificRequest() string
 }
 
-// providerImpl 是被适配的目标类,提供给adapter的被适配接口
+// providerImpl
+// 是被适配的目标类,提供给adapter的被适配接口
 type providerImpl struct{}
 
 // NewProvider 是被适配接口的工厂函数
@@ -18,7 +19,7 @@ func NewProvider() Provider {
 	return &providerImpl{}
 }
 
-//SpecificRequest 是目标类的一个方法
+// SpecificRequest 是目标类的一个方法
 func (*providerImpl) SpecificRequest() string {
 	return "Provider method"
 }
