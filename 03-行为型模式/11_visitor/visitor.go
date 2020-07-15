@@ -6,12 +6,9 @@ type Customer interface {
 	Accept(Visitor)
 }
 
+// 访问者实现的方法,也就是访问方法
 type Visitor interface {
 	Visit(Customer)
-}
-
-type EnterpriseCustomer struct {
-	name string
 }
 
 type CustomerCol struct {
@@ -28,6 +25,11 @@ func (c *CustomerCol) Accept(visitor Visitor) {
 	}
 }
 
+// 访问者1
+type EnterpriseCustomer struct {
+	name string
+}
+
 func NewEnterpriseCustomer(name string) *EnterpriseCustomer {
 	return &EnterpriseCustomer{
 		name: name,
@@ -38,6 +40,7 @@ func (c *EnterpriseCustomer) Accept(visitor Visitor) {
 	visitor.Visit(c)
 }
 
+// 访问者2
 type IndividualCustomer struct {
 	name string
 }
@@ -52,6 +55,7 @@ func (c *IndividualCustomer) Accept(visitor Visitor) {
 	visitor.Visit(c)
 }
 
+// 被访问者1
 type ServiceRequestVisitor struct{}
 
 func (*ServiceRequestVisitor) Visit(customer Customer) {
@@ -63,7 +67,7 @@ func (*ServiceRequestVisitor) Visit(customer Customer) {
 	}
 }
 
-// only for enterprise
+// 被访问者2
 type AnalysisVisitor struct{}
 
 func (*AnalysisVisitor) Visit(customer Customer) {
