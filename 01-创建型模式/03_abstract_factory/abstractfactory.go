@@ -18,6 +18,8 @@ type DAOFactory interface {
 	CreateOrderDetailDAO() OrderDetailDAO
 }
 
+/*******************************例1***********************************************/
+
 //RDBMainDAP 为关系型数据库的OrderMainDAO实现
 type RDBMainDAO struct{}
 
@@ -44,6 +46,8 @@ func (*RDBDAOFactory) CreateOrderMainDAO() OrderMainDAO {
 func (*RDBDAOFactory) CreateOrderDetailDAO() OrderDetailDAO {
 	return &RDBDetailDAO{}
 }
+
+/*********************************例2*********************************************/
 
 //XMLMainDAO XML存储
 type XMLMainDAO struct{}
