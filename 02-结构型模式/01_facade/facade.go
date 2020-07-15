@@ -2,22 +2,23 @@ package facade
 
 import "fmt"
 
-//API is facade interface of facade package
+// API is facade interface of facade package
+// 提供给客户端的统一接口
 type API interface {
 	Test() string
 }
 
-// AModuleAPI 细节1
+// AModuleAPI 内部细节1
 type AModuleAPI interface {
 	TestA() string
 }
 
-// BModuleAPI 细节2
+// BModuleAPI 内部细节2
 type BModuleAPI interface {
 	TestB() string
 }
 
-//facade implement
+// facade implement 提供给客户端的实现
 type apiImpl struct {
 	a AModuleAPI
 	b BModuleAPI

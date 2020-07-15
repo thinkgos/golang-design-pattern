@@ -19,10 +19,10 @@ Go 语言设计模式的实例代码
 - [x] [外观模式（Facade）](https://github.com/senghoo/golang-design-pattern/tree/master/01_facade)
 - [x] [适配器模式（Adapter）](https://github.com/senghoo/golang-design-pattern/tree/master/02_adapter)
 - [x] [代理模式（Proxy）](https://github.com/senghoo/golang-design-pattern/tree/master/09_proxy)
-- [ ] [组合模式（Composite）](https://github.com/senghoo/golang-design-pattern/tree/master/13_composite)
-- [ ] [享元模式（Flyweight）](https://github.com/senghoo/golang-design-pattern/tree/master/18_flyweight)
+- [x] [组合模式（Composite）](https://github.com/senghoo/golang-design-pattern/tree/master/13_composite)
+- [x] [享元模式（Flyweight）](https://github.com/senghoo/golang-design-pattern/tree/master/18_flyweight)
 - [x] [装饰模式（Decorator）](https://github.com/senghoo/golang-design-pattern/tree/master/20_decorator)
-- [ ] [桥模式（Bridge）](https://github.com/senghoo/golang-design-pattern/tree/master/22_bridge)
+- [x] [桥模式（Bridge）](https://github.com/senghoo/golang-design-pattern/tree/master/22_bridge)
 
 ## 行为型模式
 
