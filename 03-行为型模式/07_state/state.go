@@ -2,6 +2,7 @@ package state
 
 import "fmt"
 
+// 状态接口
 type Week interface {
 	Today()
 	Next(*DayContext)
@@ -17,10 +18,12 @@ func NewDayContext() *DayContext {
 	}
 }
 
+// 行为
 func (d *DayContext) Today() {
 	d.today.Today()
 }
 
+// 改变状态
 func (d *DayContext) Next() {
 	d.today.Next(d)
 }
