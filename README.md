@@ -1,6 +1,8 @@
 # Go 语言设计模式
 
-[![Build Status](https://travis-ci.org/senghoo/golang-design-pattern.svg?branch=master)](https://travis-ci.org/senghoo/golang-design-pattern)
+[![Build Status](https://travis-ci.org/thinkgos/golang-design-pattern.svg?branch=master)](https://travis-ci.org/thinkgos/golang-design-pattern)
+[![codecov](https://codecov.io/gh/thinkgos/golang-design-pattern/branch/master/graph/badge.svg)](https://codecov.io/gh/thinkgos/golang-design-pattern)
+![Action Status](https://github.com/thinkgos/golang-design-pattern/workflows/Go/badge.svg)
 
 设计模式 Golang实现－《研磨设计模式》读书笔记  
 Go 语言设计模式的实例代码
