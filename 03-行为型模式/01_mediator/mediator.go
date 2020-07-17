@@ -30,6 +30,7 @@ func (c *CPU) Process(data string) {
 	GetMediatorInstance().changed(c)
 }
 
+// 视频驱动卡
 type VideoCard struct {
 	Data string
 }
@@ -40,6 +41,7 @@ func (v *VideoCard) Display(data string) {
 	GetMediatorInstance().changed(v)
 }
 
+// 声音驱动卡
 type SoundCard struct {
 	Data string
 }
@@ -50,6 +52,7 @@ func (s *SoundCard) Play(data string) {
 	GetMediatorInstance().changed(s)
 }
 
+// 定义中介者
 type Mediator struct {
 	CD    *CDDriver
 	CPU   *CPU

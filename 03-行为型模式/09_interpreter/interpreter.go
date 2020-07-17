@@ -59,26 +59,18 @@ func (p *Parser) Parse(exp string) {
 
 func (p *Parser) newAddNode() Node {
 	p.index++
-	return &AddNode{
-		left:  p.prev,
-		right: p.newValNode(),
-	}
+	return &AddNode{p.prev, p.newValNode()}
 }
 
 func (p *Parser) newMinNode() Node {
 	p.index++
-	return &MinNode{
-		left:  p.prev,
-		right: p.newValNode(),
-	}
+	return &MinNode{p.prev, p.newValNode()}
 }
 
 func (p *Parser) newValNode() Node {
 	v, _ := strconv.Atoi(p.exp[p.index])
 	p.index++
-	return &ValNode{
-		val: v,
-	}
+	return &ValNode{v}
 }
 
 func (p *Parser) Result() Node {

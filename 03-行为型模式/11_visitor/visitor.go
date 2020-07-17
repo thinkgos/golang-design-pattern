@@ -2,8 +2,10 @@ package visitor
 
 import "fmt"
 
+// 被访问者实现的暴露的接口.
 type Customer interface {
 	Accept(Visitor)
+	Name() string
 }
 
 // 访问者实现的方法,也就是访问方法
@@ -25,7 +27,7 @@ func (c *CustomerCol) Accept(visitor Visitor) {
 	}
 }
 
-// 访问者1
+// 被访问者1
 type EnterpriseCustomer struct {
 	name string
 }
@@ -40,39 +42,20 @@ func (c *EnterpriseCustomer) Accept(visitor Visitor) {
 	visitor.Visit(c)
 }
 
-// 访问者2
-type IndividualCustomer struct {
-	name string
+func (c EnterpriseCustomer) Name() string {
+	return c.name
 }
 
-func NewIndividualCustomer(name string) *IndividualCustomer {
-	return &IndividualCustomer{
-		name: name,
-	}
-}
-
-func (c *IndividualCustomer) Accept(visitor Visitor) {
-	visitor.Visit(c)
-}
-
-// 被访问者1
+// 访问者1
 type ServiceRequestVisitor struct{}
 
 func (*ServiceRequestVisitor) Visit(customer Customer) {
-	switch c := customer.(type) {
-	case *EnterpriseCustomer:
-		fmt.Printf("serving enterprise customer %s\n", c.name)
-	case *IndividualCustomer:
-		fmt.Printf("serving individual customer %s\n", c.name)
-	}
+	fmt.Printf("serving enterprise customer %s\n", customer.Name())
 }
 
-// 被访问者2
+// 访问者2
 type AnalysisVisitor struct{}
 
 func (*AnalysisVisitor) Visit(customer Customer) {
-	switch c := customer.(type) {
-	case *EnterpriseCustomer:
-		fmt.Printf("analysis enterprise customer %s\n", c.name)
-	}
+	fmt.Printf("analysis enterprise customer %s\n", customer.Name())
 }

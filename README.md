@@ -34,6 +34,6 @@ Go 语言设计模式的实例代码
 - [x] [策略模式（Strategy）](https://github.com/senghoo/golang-design-pattern/tree/master/15_strategy)
 - [x] [状态模式（State）](https://github.com/senghoo/golang-design-pattern/tree/master/16_state)
 - [x] [备忘录模式（Memento）](https://github.com/senghoo/golang-design-pattern/tree/master/17_memento)
-- [ ] [解释器模式（Interpreter）](https://github.com/senghoo/golang-design-pattern/tree/master/19_interpreter)
+- [x] [解释器模式（Interpreter）](https://github.com/senghoo/golang-design-pattern/tree/master/19_interpreter)
 - [ ] [职责链模式（Chain of Responsibility）](https://github.com/senghoo/golang-design-pattern/tree/master/21_chain_of_responsibility)
-- [ ] [访问者模式（Visitor）](https://github.com/senghoo/golang-design-pattern/tree/master/23_visitor)
+- [x] [访问者模式（Visitor）](https://github.com/senghoo/golang-design-pattern/tree/master/23_visitor)
