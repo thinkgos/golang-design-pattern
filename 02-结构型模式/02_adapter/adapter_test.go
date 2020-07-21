@@ -1,13 +1,14 @@
 package adapter
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
 
 func TestAdapter(t *testing.T) {
-	expect := "Provider method"
-	provider := NewProvider()
+	provider := NewAdaptee()
 	target := NewAdapter(provider)
 
-	if res := target.Request(); res != expect {
-		t.Fatalf("expect: %s, actual: %s", expect, res)
-	}
+	require.Equal(t, "Adaptee method", target.Request())
 }

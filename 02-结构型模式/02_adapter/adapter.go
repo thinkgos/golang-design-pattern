@@ -5,32 +5,32 @@ type Target interface {
 	Request() string
 }
 
-// Provider 是被适配的目标接口
-type Provider interface {
+// Adaptee 是被适配的目标接口
+type Adaptee interface {
 	SpecificRequest() string
 }
 
-// providerImpl
+// adapteeImpl
 // 是被适配的目标类,提供给adapter的被适配接口
-type providerImpl struct{}
+type adapteeImpl struct{}
 
-// NewProvider 是被适配接口的工厂函数
-func NewProvider() Provider {
-	return &providerImpl{}
+// NewAdaptee 是被适配接口的工厂函数
+func NewAdaptee() Adaptee {
+	return &adapteeImpl{}
 }
 
 // SpecificRequest 是目标类的一个方法
-func (*providerImpl) SpecificRequest() string {
-	return "Provider method"
+func (*adapteeImpl) SpecificRequest() string {
+	return "Adaptee method"
 }
 
-//adapter 是转换Provider为Target接口的适配器
+// adapter 是转换Adaptee为Target接口的适配器
 type adapter struct {
-	Provider
+	Adaptee
 }
 
-//NewAdapter 是adapter的工厂函数
-func NewAdapter(p Provider) Target {
+// NewAdapter 是adapter的工厂函数
+func NewAdapter(p Adaptee) Target {
 	return &adapter{p}
 }
 
