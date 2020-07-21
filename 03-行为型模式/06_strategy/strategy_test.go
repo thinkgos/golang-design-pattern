@@ -1,15 +1,17 @@
 package strategy
 
-func ExamplePayByCash() {
-	payment := NewPayment("Ada", "", 123, &Cash{})
-	payment.Pay()
-	// Output:
-	// Pay $123 to Ada by cash
-}
+import (
+	"testing"
 
-func ExamplePayByBank() {
-	payment := NewPayment("Bob", "0002", 888, &Bank{})
-	payment.Pay()
-	// Output:
-	// Pay $888 to Bob by bank account 0002
+	"github.com/stretchr/testify/require"
+)
+
+func TestStrategy(t *testing.T) {
+	cpu := NewComputer(100, 200, &Add{})
+
+	require.Equal(t, 300, cpu.Do())
+	cpu.SetStrategy(&Mul{})
+	require.Equal(t, 20000, cpu.Do())
+	cpu.SetStrategy(&Sub{})
+	require.Equal(t, -100, cpu.Do())
 }

@@ -1,51 +1,58 @@
 package strategy
 
-import "fmt"
-
 // 策略接口
 type Strategy interface {
-	Pay(*PaymentContext)
+	Do(*ComputerContext) int
 }
 
 // 策略上下文
-type PaymentContext struct {
-	Name   string
-	CardID string
-	Money  int
+type ComputerContext struct {
+	Num1 int
+	Num2 int
 }
 
-type Payment struct {
-	context  *PaymentContext
+type Computer struct {
+	context  *ComputerContext
 	strategy Strategy
 }
 
 // 根据不同的策创建实例方法
-func NewPayment(name, cardId string, money int, strategy Strategy) *Payment {
-	return &Payment{
-		context: &PaymentContext{
-			Name:   name,
-			CardID: cardId,
-			Money:  money,
+func NewComputer(num1, num2 int, strategy Strategy) *Computer {
+	return &Computer{
+		&ComputerContext{
+			num1,
+			num2,
 		},
-		strategy: strategy,
+		strategy,
 	}
 }
 
+func (p *Computer) SetStrategy(strategy Strategy) {
+	p.strategy = strategy
+}
+
 // 调策略
-func (p *Payment) Pay() {
-	p.strategy.Pay(p.context)
+func (p *Computer) Do() int {
+	return p.strategy.Do(p.context)
 }
 
-// 策略实例
-type Cash struct{}
+// 加法 策略实例
+type Add struct{}
 
-func (*Cash) Pay(ctx *PaymentContext) {
-	fmt.Printf("Pay $%d to %s by cash", ctx.Money, ctx.Name)
+func (*Add) Do(ctx *ComputerContext) int {
+	return ctx.Num1 + ctx.Num2
 }
 
-// 策略实例
-type Bank struct{}
+// 乘法 策略实例
+type Mul struct{}
 
-func (*Bank) Pay(ctx *PaymentContext) {
-	fmt.Printf("Pay $%d to %s by bank account %s", ctx.Money, ctx.Name, ctx.CardID)
+func (*Mul) Do(ctx *ComputerContext) int {
+	return ctx.Num1 * ctx.Num2
+}
+
+// 减法 策略实例
+type Sub struct{}
+
+func (*Sub) Do(ctx *ComputerContext) int {
+	return ctx.Num1 - ctx.Num2
 }

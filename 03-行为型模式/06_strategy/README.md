@@ -2,7 +2,7 @@
 
 see [策略模式](https://www.runoob.com/design-pattern/strategy-pattern.html)
 
-和适配器模式有点类似
+简单说明: 和适配器模式有点类似,主要思想在于由使用它的客户决定使用哪种算法,并且可运行时更改.
 
 定义一系列算法，让这些算法在运行时可以互换，使得分离算法，符合开闭原则。  
 在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。  
