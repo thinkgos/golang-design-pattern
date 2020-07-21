@@ -12,10 +12,8 @@ type ImageFlyweight struct {
 }
 
 func NewImageFlyweight(filename string) *ImageFlyweight {
-	// Load image file
-	data := fmt.Sprintf("image data %s", filename)
 	return &ImageFlyweight{
-		data: data,
+		data: fmt.Sprintf("image data %s", filename), // Load image file
 	}
 }
 
@@ -24,7 +22,9 @@ func (i *ImageFlyweight) Data() string {
 }
 
 // 单例管理共享不变的数据
-var imageFactory = &ImageFlyweightFactory{make(map[string]*ImageFlyweight)}
+var imageFactory = &ImageFlyweightFactory{
+	make(map[string]*ImageFlyweight),
+}
 
 func GetImageFlyweightFactory() *ImageFlyweightFactory {
 	return imageFactory
@@ -45,9 +45,8 @@ type ImageViewer struct {
 }
 
 func NewImageViewer(filename string) *ImageViewer {
-	image := GetImageFlyweightFactory().Get(filename)
 	return &ImageViewer{
-		ImageFlyweight: image,
+		GetImageFlyweightFactory().Get(filename),
 	}
 }
 

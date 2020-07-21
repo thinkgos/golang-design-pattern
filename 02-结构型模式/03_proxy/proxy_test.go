@@ -1,14 +1,14 @@
 package proxy
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
 
 func TestProxy(t *testing.T) {
-	var sub Subject
-	sub = &Proxy{}
+	realSub := new(RealSubject)
+	proxy := NewProxy(realSub)
 
-	res := sub.Do()
-
-	if res != "pre:real:after" {
-		t.Fail()
-	}
+	require.Equal(t, "pre:real:after", proxy.Do())
 }

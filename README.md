@@ -19,9 +19,9 @@ Go 语言设计模式的实例代码
 
   - [ ] 01.外观模式 (Facade)
   - [x] 02.适配器模式 (Adapter)
-  - [ ] 03.代理模式 (Proxy)
+  - [x] 03.代理模式 (Proxy)
   - [ ] 04.组合模式 (Composite)
-  - [ ] 05.享元模式 (Flyweight)
+  - [x] 05.享元模式 (Flyweight)
   - [x] 06.装饰模式 (Decorator)
   - [ ] 07.桥模式 (Bridge)
 
