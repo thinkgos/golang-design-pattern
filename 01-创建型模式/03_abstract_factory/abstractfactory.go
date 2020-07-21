@@ -2,76 +2,76 @@ package abstractfactory
 
 import "fmt"
 
-//OrderMainDAO 为订单主记录
-type OrderMainDAO interface {
+// AbstractProductOrderMain 为订单主记录
+type AbstractProductOrderMain interface {
 	SaveOrderMain()
 }
 
-//OrderDetailDAO 为订单详情纪录
-type OrderDetailDAO interface {
+// AbstractProductOrderDetail 为订单详情纪录
+type AbstractProductOrderDetail interface {
 	SaveOrderDetail()
 }
 
-//DAOFactory DAO 抽象模式工厂接口
-type DAOFactory interface {
-	CreateOrderMainDAO() OrderMainDAO
-	CreateOrderDetailDAO() OrderDetailDAO
+// AbstractFactory 抽象模式工厂接口
+type AbstractFactory interface {
+	CreateOrderMain() AbstractProductOrderMain
+	CreateOrderDetail() AbstractProductOrderDetail
 }
 
 /*******************************例1***********************************************/
 
-//RDBMainDAP 为关系型数据库的OrderMainDAO实现
-type RDBMainDAO struct{}
+// RDBMainDAP 具体产品类 为关系型数据库的OrderMainDAO实现
+type RDBMain struct{}
 
-//SaveOrderMain ...
-func (*RDBMainDAO) SaveOrderMain() {
+// SaveOrderMain ...
+func (*RDBMain) SaveOrderMain() {
 	fmt.Print("rdb main save\n")
 }
 
-//RDBDetailDAO 为关系型数据库的OrderDetailDAO实现
-type RDBDetailDAO struct{}
+// RDBDetail 具体产品类 为关系型数据库的OrderDetailDAO实现
+type RDBDetail struct{}
 
 // SaveOrderDetail ...
-func (*RDBDetailDAO) SaveOrderDetail() {
+func (*RDBDetail) SaveOrderDetail() {
 	fmt.Print("rdb detail save\n")
 }
 
-//RDBDAOFactory 是RDB 抽象工厂实现
-type RDBDAOFactory struct{}
+// RDBFactory 具体工厂类 RDB抽象工厂实现
+type RDBFactory struct{}
 
-func (*RDBDAOFactory) CreateOrderMainDAO() OrderMainDAO {
-	return &RDBMainDAO{}
+func (*RDBFactory) CreateOrderMain() AbstractProductOrderMain {
+	return new(RDBMain)
 }
 
-func (*RDBDAOFactory) CreateOrderDetailDAO() OrderDetailDAO {
-	return &RDBDetailDAO{}
+func (*RDBFactory) CreateOrderDetail() AbstractProductOrderDetail {
+	return new(RDBDetail)
 }
 
 /*********************************例2*********************************************/
 
-//XMLMainDAO XML存储
-type XMLMainDAO struct{}
+// XMLMain 具体产品类 XML存储
+type XMLMain struct{}
 
-//SaveOrderMain ...
-func (*XMLMainDAO) SaveOrderMain() {
+// SaveOrderMain ...
+func (*XMLMain) SaveOrderMain() {
 	fmt.Print("xml main save\n")
 }
 
-//XMLDetailDAO XML存储
-type XMLDetailDAO struct{}
+// XMLDetail 具体产品类 XML存储
+type XMLDetail struct{}
 
 // SaveOrderDetail ...
-func (*XMLDetailDAO) SaveOrderDetail() {
+func (*XMLDetail) SaveOrderDetail() {
 	fmt.Print("xml detail save")
 }
 
-//XMLDAOFactory 是RDB 抽象工厂实现
-type XMLDAOFactory struct{}
+// XMLFactory 具体工厂类 RDB抽象工厂实现
+type XMLFactory struct{}
 
-func (*XMLDAOFactory) CreateOrderMainDAO() OrderMainDAO {
-	return &XMLMainDAO{}
+func (*XMLFactory) CreateOrderMain() AbstractProductOrderMain {
+	return new(XMLMain)
 }
 
-func (*XMLDAOFactory) CreateOrderDetailDAO() OrderDetailDAO {
-	return &XMLDetailDAO{}
+func (*XMLFactory) CreateOrderDetail() AbstractProductOrderDetail {
+	return new(XMLDetail)
 }
