@@ -1,16 +1,16 @@
 package decorator
 
 import (
-	"fmt"
+	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
-func ExampleDecoratorFunc() {
-	var c = NewBase()
+func TestDecoratorFunc(t *testing.T) {
+	c := NewEmptyBase()
+
 	c = WarpAddDecoratorFunc(c, 10)
 	c = WarpMulDecoratorFunc(c, 8)
-	res := c()
 
-	fmt.Printf("res %d\n", res)
-	// Output:
-	// res 80
+	require.Equal(t, 80, c())
 }

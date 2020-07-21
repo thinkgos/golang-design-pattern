@@ -9,33 +9,35 @@ Go 语言设计模式的实例代码
 
 ## 创建型模式
 
-- [x] 简单工厂模式（Simple Factory）
-- [x] 工厂方法模式（Factory Method）
-- [x] 抽象工厂模式（Abstract Factory）
-- [x] 创建者模式（Builder）
-- [x] 原型模式（Prototype）
-- [x] 单例模式（Singleton）
+## 创建型模式
+
+- [x] 01.简单工厂模式 (Simple Factory)
+- [x] 02.工厂方法模式 (Factory Method)
+- [x] 03.抽象工厂模式 (Abstract Factory)
+- [x] 04.创建者模式 (Builder)
+- [x] 05.原型模式 (Prototype)
+- [x] 06.单例模式 (Singleton)
 
 ## 结构型模式
 
-- [x] 外观模式（Facade）
-- [x] 适配器模式（Adapter）
-- [x] 代理模式（Proxy）
-- [x] 组合模式（Composite）
-- [x] 享元模式（Flyweight）
-- [x] 装饰模式（Decorator）
-- [x] 桥模式（Bridge）
+- [ ] 01.外观模式 (Facade)
+- [ ] 02.适配器模式 (Adapter)
+- [ ] 03.代理模式 (Proxy)
+- [ ] 04.组合模式 (Composite)
+- [ ] 05.享元模式 (Flyweight)
+- [x] 06.装饰模式 (Decorator)
+- [ ] 07.桥模式 (Bridge)
 
 ## 行为型模式
 
-- [ ] 中介者模式（Mediator）
-- [x] 观察者模式（Observer）
-- [x] 命令模式（Command）
-- [x] 迭代器模式（Iterator）
-- [x] 模板方法模式（Template Method）
-- [x] 策略模式（Strategy）
-- [x] 状态模式（State）
-- [x] 备忘录模式（Memento）
-- [x] 解释器模式（Interpreter）
-- [ ] 职责链模式（Chain of Responsibility）
-- [x] 访问者模式（Visitor）
+- [ ] 01.中介者模式 (Mediator)
+- [ ] 02.观察者模式 (Observer)
+- [ ] 03.命令模式 (Command)
+- [ ] 04.迭代器模式 (Iterator)
+- [ ] 05.模板方法模式 (Template Method)
+- [ ] 06.策略模式 (Strategy)
+- [ ] 07.状态模式 (State)
+- [ ] 08.备忘录模式 (Memento)
+- [ ] 09.解释器模式 (Interpreter)
+- [ ] 10.职责链模式 (Chain of Responsibility)
+- [ ] 11.访问者模式 (Visitor)

@@ -4,9 +4,9 @@ type Component interface {
 	Calc() int
 }
 
-type ConcreteComponent struct{}
+type BaseComponent struct{}
 
-func (*ConcreteComponent) Calc() int {
+func (*BaseComponent) Calc() int {
 	return 0
 }
 
@@ -16,10 +16,7 @@ type MulDecorator struct {
 }
 
 func WarpMulDecorator(c Component, num int) Component {
-	return &MulDecorator{
-		Component: c,
-		num:       num,
-	}
+	return &MulDecorator{c, num}
 }
 
 func (d *MulDecorator) Calc() int {
@@ -32,10 +29,7 @@ type AddDecorator struct {
 }
 
 func WarpAddDecorator(c Component, num int) Component {
-	return &AddDecorator{
-		Component: c,
-		num:       num,
-	}
+	return &AddDecorator{c, num}
 }
 
 func (d *AddDecorator) Calc() int {

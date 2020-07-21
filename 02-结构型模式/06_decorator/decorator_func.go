@@ -2,7 +2,7 @@ package decorator
 
 type ComponentFunc func() int
 
-func NewBase() ComponentFunc {
+func NewEmptyBase() ComponentFunc {
 	return func() int {
 		return 0
 	}
