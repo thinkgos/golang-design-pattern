@@ -2,7 +2,7 @@ package simplefactory
 
 import "fmt"
 
-//API is interface
+// API is interface
 type API interface {
 	Say(name string) string
 }
@@ -12,14 +12,16 @@ const (
 	hello
 )
 
-//NewAPI return Api instance by type
+// NewAPI return Api instance by type
 func NewAPI(t int) API {
-	if t == hi {
-		return &hiAPI{}
-	} else if t == hello {
-		return &helloAPI{}
+	switch t {
+	case hi:
+		return new(hiAPI)
+	case hello:
+		return new(helloAPI)
+	default:
+		panic("invalid api type")
 	}
-	return nil
 }
 
 //hiAPI is one of API implement
