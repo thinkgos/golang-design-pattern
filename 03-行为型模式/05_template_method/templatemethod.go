@@ -18,10 +18,10 @@ type template struct {
 	uri string
 }
 
-func newTemplate(impl implement) *template {
-	return &template{
-		implement: impl,
-	}
+func newTemplate() *template {
+	tpl := &template{}
+	tpl.implement = tpl
+	return tpl
 }
 
 func (t *template) Download(uri string) {
@@ -32,18 +32,24 @@ func (t *template) Download(uri string) {
 	fmt.Print("finish downloading\n")
 }
 
+func (t *template) download() {
+	fmt.Print("default download\n")
+}
+
 func (t *template) save() {
 	fmt.Print("default save\n")
 }
 
+/************************** 子类继承实现 ******************/
+
 // 继承父类实现http
 type HTTPDownloader struct {
-	*template
+	template
 }
 
 func NewHTTPDownloader() Downloader {
-	downloader := &HTTPDownloader{}
-	downloader.template = newTemplate(downloader) // 持子类实现
+	downloader := new(HTTPDownloader)
+	downloader.implement = downloader
 	return downloader
 }
 
@@ -57,12 +63,12 @@ func (*HTTPDownloader) save() {
 
 // 继承父类实现ftp
 type FTPDownloader struct {
-	*template
+	template
 }
 
 func NewFTPDownloader() Downloader {
-	downloader := &FTPDownloader{}
-	downloader.template = newTemplate(downloader)
+	downloader := new(FTPDownloader)
+	downloader.implement = downloader
 	return downloader
 }
 

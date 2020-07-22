@@ -31,7 +31,7 @@ Go 语言设计模式的实例代码
   - [x] 02.观察者模式 (Observer)
   - [ ] 03.命令模式 (Command)
   - [ ] 04.迭代器模式 (Iterator)
-  - [ ] 05.模板方法模式 (Template Method)
+  - [x] 05.模板方法模式 (Template Method)
   - [x] 06.策略模式 (Strategy)
   - [ ] 07.状态模式 (State)
   - [ ] 08.备忘录模式 (Memento)

@@ -1,7 +1,18 @@
 package templatemethod
 
+func ExampleTemplateDownloader() {
+	var downloader = newTemplate()
+
+	downloader.Download("tpl://example.com/abc.zip")
+	// Output:
+	// prepare downloading
+	// default download
+	// default save
+	// finish downloading
+}
+
 func ExampleHTTPDownloader() {
-	var downloader Downloader = NewHTTPDownloader()
+	var downloader = NewHTTPDownloader()
 
 	downloader.Download("http://example.com/abc.zip")
 	// Output:
@@ -12,7 +23,7 @@ func ExampleHTTPDownloader() {
 }
 
 func ExampleFTPDownloader() {
-	var downloader Downloader = NewFTPDownloader()
+	var downloader = NewFTPDownloader()
 
 	downloader.Download("ftp://example.com/abc.zip")
 	// Output:
