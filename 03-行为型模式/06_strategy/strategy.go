@@ -1,6 +1,6 @@
 package strategy
 
-// 策略接口
+// 抽象策略接口
 type Strategy interface {
 	Do(*ComputerContext) int
 }

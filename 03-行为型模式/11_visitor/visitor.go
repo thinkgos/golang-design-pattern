@@ -13,20 +13,6 @@ type Visitor interface {
 	Visit(Customer)
 }
 
-type CustomerCol struct {
-	customers []Customer
-}
-
-func (c *CustomerCol) Add(customer Customer) {
-	c.customers = append(c.customers, customer)
-}
-
-func (c *CustomerCol) Accept(visitor Visitor) {
-	for _, customer := range c.customers {
-		customer.Accept(visitor)
-	}
-}
-
 // 被访问者1
 type EnterpriseCustomer struct {
 	name string

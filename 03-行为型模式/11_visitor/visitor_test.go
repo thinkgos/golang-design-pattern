@@ -1,11 +1,14 @@
 package visitor
 
 func ExampleVisitor() {
-	c := &CustomerCol{}
-	c.Add(NewEnterpriseCustomer("A company"))
-	c.Add(NewEnterpriseCustomer("B company"))
-	c.Accept(&ServiceRequestVisitor{})
-	c.Accept(&AnalysisVisitor{})
+	ac := NewEnterpriseCustomer("A company")
+	bc := NewEnterpriseCustomer("B company")
+	vis1 := &ServiceRequestVisitor{}
+	vis2 := &AnalysisVisitor{}
+	ac.Accept(vis1)
+	bc.Accept(vis1)
+	ac.Accept(vis2)
+	bc.Accept(vis2)
 	// Output:
 	// serving enterprise customer A company
 	// serving enterprise customer B company

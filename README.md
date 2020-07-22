@@ -37,7 +37,7 @@ Go 语言设计模式的实例代码
   - [ ] 08.备忘录模式 (Memento)
   - [x] 09.解释器模式 (Interpreter)
   - [ ] 10.职责链模式 (Chain of Responsibility)
-  - [ ] 11.访问者模式 (Visitor)
+  - [x] 11.访问者模式 (Visitor)
 
 ## 六大基本原则
    
