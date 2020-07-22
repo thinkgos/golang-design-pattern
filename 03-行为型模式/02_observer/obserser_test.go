@@ -1,7 +1,7 @@
 package observer
 
 func ExampleObserver() {
-	subject := NewSubject()
+	subject := NewConcreteSubject()
 	reader1 := NewReader("reader1")
 	reader2 := NewReader("reader2")
 	reader3 := NewReader("reader3")
