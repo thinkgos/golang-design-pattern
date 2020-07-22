@@ -17,18 +17,18 @@ Go 语言设计模式的实例代码
 
 - #### 结构型模式
 
-  - [ ] 01.外观模式 (Facade)
+  - [x] 01.外观模式 (Facade)
   - [x] 02.适配器模式 (Adapter)
   - [x] 03.代理模式 (Proxy)
   - [ ] 04.组合模式 (Composite)
   - [x] 05.享元模式 (Flyweight)
   - [x] 06.装饰模式 (Decorator)
-  - [ ] 07.桥模式 (Bridge)
+  - [x] 07.桥接模式 (Bridge)
 
 - #### 行为型模式
 
   - [ ] 01.中介者模式 (Mediator)
-  - [ ] 02.观察者模式 (Observer)
+  - [x] 02.观察者模式 (Observer)
   - [ ] 03.命令模式 (Command)
   - [ ] 04.迭代器模式 (Iterator)
   - [ ] 05.模板方法模式 (Template Method)

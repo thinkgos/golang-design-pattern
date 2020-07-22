@@ -2,14 +2,17 @@ package bridge
 
 import "fmt"
 
+// 消息接口 桥接抽象接口
 type AbstractMessage interface {
 	SendMessage(text, to string)
 }
 
+// 底层消息实现者 抽象接口
 type MessageImplementer interface {
 	Send(text, to string)
 }
 
+/************************ 抽象化实现者 ******************************/
 // 实现SMS
 type MessageSMS struct{}
 
@@ -31,6 +34,8 @@ func NewViaEmail() MessageImplementer {
 func (*MessageEmail) Send(text, to string) {
 	fmt.Printf("send %s to %s via Email", text, to)
 }
+
+/****************************  桥接实现者 ********************************/
 
 // 桥接common
 type CommonMessage struct {
