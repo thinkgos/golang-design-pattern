@@ -1,14 +1,19 @@
 package facade
 
-import "testing"
+import (
+	"fmt"
+)
 
-// TestFacadeAPI ...
-func TestFacadeAPI(t *testing.T) {
-	expect := "A module running\nB module running"
-	api := NewAPI()
-	ret := api.Test()
+func Draw(s Shape) {
+	fmt.Println(s.Draw())
+}
 
-	if ret != expect {
-		t.Fatalf("expect %s, return %s", expect, ret)
-	}
+func ExampleFacade() {
+	rect := NewRectangle()
+	Draw(rect)
+	circle := NewCircle()
+	Draw(circle)
+	// output:
+	// Rectangle Draw
+	// Circle Draw
 }
