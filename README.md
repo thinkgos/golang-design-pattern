@@ -29,13 +29,13 @@ Go 语言设计模式的实例代码
 
   - [ ] 01.中介者模式 (Mediator)
   - [x] 02.观察者模式 (Observer)
-  - [ ] 03.命令模式 (Command)
+  - [x] 03.命令模式 (Command)
   - [ ] 04.迭代器模式 (Iterator)
   - [x] 05.模板方法模式 (Template Method)
   - [x] 06.策略模式 (Strategy)
   - [ ] 07.状态模式 (State)
   - [ ] 08.备忘录模式 (Memento)
-  - [ ] 09.解释器模式 (Interpreter)
+  - [x] 09.解释器模式 (Interpreter)
   - [ ] 10.职责链模式 (Chain of Responsibility)
   - [ ] 11.访问者模式 (Visitor)
 

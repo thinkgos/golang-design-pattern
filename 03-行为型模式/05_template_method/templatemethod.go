@@ -49,7 +49,7 @@ type HTTPDownloader struct {
 
 func NewHTTPDownloader() Downloader {
 	downloader := new(HTTPDownloader)
-	downloader.implement = downloader
+	downloader.implement = downloader // 让父类调用子类的方法
 	return downloader
 }
 
@@ -68,7 +68,7 @@ type FTPDownloader struct {
 
 func NewFTPDownloader() Downloader {
 	downloader := new(FTPDownloader)
-	downloader.implement = downloader
+	downloader.implement = downloader // 让父类调用子类的方法
 	return downloader
 }
 
