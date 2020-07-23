@@ -18,13 +18,12 @@ const (
 
 func NewComponent(kind int, name string) Component {
 	var c Component
-	switch kind {
-	case LeafNode:
-		c = NewLeaf()
-	case CompositeNode:
-		c = NewComposite()
-	}
 
+	if kind == CompositeNode {
+		c = NewComposite()
+	} else {
+		c = NewLeaf()
+	}
 	c.SetName(name)
 	return c
 }

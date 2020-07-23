@@ -2,7 +2,7 @@ package memento
 
 import "fmt"
 
-// 保存对象的状态
+// 备忘录, 保存对象的状态
 type Memento struct {
 	hp, mp int
 }
