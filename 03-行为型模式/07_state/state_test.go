@@ -2,13 +2,10 @@ package state
 
 func ExampleWeek() {
 	ctx := NewDayContext()
-	todayAndNext := func() {
-		ctx.Today()
-		ctx.Next()
-	}
 
-	for i := 0; i < 8; i++ {
-		todayAndNext()
+	for i := 0; i < 7; i++ {
+		ctx.SetDay(tWeek(i))
+		ctx.Today()
 	}
 	// Output:
 	// Sunday
@@ -18,5 +15,4 @@ func ExampleWeek() {
 	// Thursday
 	// Friday
 	// Saturday
-	// Sunday
 }

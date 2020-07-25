@@ -2,10 +2,21 @@ package state
 
 import "fmt"
 
+type tWeek byte
+
+const (
+	WeekSunday tWeek = iota
+	WeekMonday
+	WeekTuesday
+	WeekWednesday
+	WeekThursday
+	WeekFriday
+	WeekSaturday
+)
+
 // 状态接口
 type Week interface {
 	Today()
-	Next(*DayContext)
 }
 
 type DayContext struct {
@@ -24,8 +35,23 @@ func (d *DayContext) Today() {
 }
 
 // 改变状态
-func (d *DayContext) Next() {
-	d.today.Next(d)
+func (d *DayContext) SetDay(wday tWeek) {
+	switch wday {
+	case WeekSunday:
+		d.today = &Sunday{}
+	case WeekMonday:
+		d.today = &Monday{}
+	case WeekTuesday:
+		d.today = &Tuesday{}
+	case WeekWednesday:
+		d.today = &Wednesday{}
+	case WeekThursday:
+		d.today = &Thursday{}
+	case WeekFriday:
+		d.today = &Friday{}
+	case WeekSaturday:
+		d.today = &Saturday{}
+	}
 }
 
 type Sunday struct{}
@@ -34,18 +60,10 @@ func (*Sunday) Today() {
 	fmt.Printf("Sunday\n")
 }
 
-func (*Sunday) Next(ctx *DayContext) {
-	ctx.today = &Monday{}
-}
-
 type Monday struct{}
 
 func (*Monday) Today() {
 	fmt.Printf("Monday\n")
-}
-
-func (*Monday) Next(ctx *DayContext) {
-	ctx.today = &Tuesday{}
 }
 
 type Tuesday struct{}
@@ -54,18 +72,10 @@ func (*Tuesday) Today() {
 	fmt.Printf("Tuesday\n")
 }
 
-func (*Tuesday) Next(ctx *DayContext) {
-	ctx.today = &Wednesday{}
-}
-
 type Wednesday struct{}
 
 func (*Wednesday) Today() {
 	fmt.Printf("Wednesday\n")
-}
-
-func (*Wednesday) Next(ctx *DayContext) {
-	ctx.today = &Thursday{}
 }
 
 type Thursday struct{}
@@ -74,26 +84,14 @@ func (*Thursday) Today() {
 	fmt.Printf("Thursday\n")
 }
 
-func (*Thursday) Next(ctx *DayContext) {
-	ctx.today = &Friday{}
-}
-
 type Friday struct{}
 
 func (*Friday) Today() {
 	fmt.Printf("Friday\n")
 }
 
-func (*Friday) Next(ctx *DayContext) {
-	ctx.today = &Saturday{}
-}
-
 type Saturday struct{}
 
 func (*Saturday) Today() {
 	fmt.Printf("Saturday\n")
-}
-
-func (*Saturday) Next(ctx *DayContext) {
-	ctx.today = &Sunday{}
 }

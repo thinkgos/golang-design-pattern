@@ -33,7 +33,7 @@ Go 语言设计模式的实例代码
   - [ ] 04.迭代器模式 (Iterator)
   - [x] 05.模板方法模式 (Template Method)
   - [x] 06.策略模式 (Strategy)
-  - [ ] 07.状态模式 (State)
+  - [x] 07.状态模式 (State)
   - [x] 08.备忘录模式 (Memento)
   - [x] 09.解释器模式 (Interpreter)
   - [ ] 10.职责链模式 (Chain of Responsibility)
