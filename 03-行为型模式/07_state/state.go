@@ -4,16 +4,6 @@ import "fmt"
 
 type tWeek byte
 
-const (
-	WeekSunday tWeek = iota
-	WeekMonday
-	WeekTuesday
-	WeekWednesday
-	WeekThursday
-	WeekFriday
-	WeekSaturday
-)
-
 // 状态接口
 type Week interface {
 	Today()
@@ -35,23 +25,8 @@ func (d *DayContext) Today() {
 }
 
 // 改变状态
-func (d *DayContext) SetDay(wday tWeek) {
-	switch wday {
-	case WeekSunday:
-		d.today = &Sunday{}
-	case WeekMonday:
-		d.today = &Monday{}
-	case WeekTuesday:
-		d.today = &Tuesday{}
-	case WeekWednesday:
-		d.today = &Wednesday{}
-	case WeekThursday:
-		d.today = &Thursday{}
-	case WeekFriday:
-		d.today = &Friday{}
-	case WeekSaturday:
-		d.today = &Saturday{}
-	}
+func (d *DayContext) SetDay(w Week) {
+	d.today = w
 }
 
 type Sunday struct{}

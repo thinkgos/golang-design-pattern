@@ -1,10 +1,11 @@
 package state
 
 func ExampleWeek() {
+	week := []Week{new(Sunday), new(Monday), new(Tuesday), new(Wednesday), new(Thursday), new(Friday), new(Saturday)}
 	ctx := NewDayContext()
 
-	for i := 0; i < 7; i++ {
-		ctx.SetDay(tWeek(i))
+	for _, v := range week {
+		ctx.SetDay(v)
 		ctx.Today()
 	}
 	// Output:
