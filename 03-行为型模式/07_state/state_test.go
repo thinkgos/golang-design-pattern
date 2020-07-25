@@ -5,8 +5,8 @@ func ExampleWeek() {
 	ctx := NewDayContext()
 
 	for _, v := range week {
-		ctx.SetDay(v)
-		ctx.Today()
+		ctx.SetDay(v) // 改变状态
+		ctx.Today()   // 查看行为
 	}
 	// Output:
 	// Sunday
