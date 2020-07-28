@@ -1,4 +1,4 @@
-# Go 语言设计模式
+# Goland 设计模式
 
 [![Build Status](https://travis-ci.org/thinkgos/golang-design-pattern.svg?branch=master)](https://travis-ci.org/thinkgos/golang-design-pattern)
 [![codecov](https://codecov.io/gh/thinkgos/golang-design-pattern/branch/master/graph/badge.svg)](https://codecov.io/gh/thinkgos/golang-design-pattern)

@@ -23,3 +23,18 @@ func (p *PrototypeManager) Get(name string) Cloneable {
 func (p *PrototypeManager) Set(name string, prototype Cloneable) {
 	p.prototypes[name] = prototype
 }
+
+//**************************** 对象 ********************************************
+
+type Type1 struct {
+	name string
+}
+
+func (t *Type1) Clone() Cloneable {
+	tc := *t // 复制一个现成对象(浅拷贝),比new完后再赋值要快?
+	return &tc
+}
+
+func (t *Type1) Name() string {
+	return t.name
+}
