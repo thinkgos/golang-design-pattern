@@ -11,6 +11,8 @@ type Director struct {
 	builder Builder
 }
 
+/************************* 建造工厂 ************************/
+
 // NewDirector ...
 func NewDirector(builder Builder) *Director {
 	return &Director{
@@ -25,7 +27,7 @@ func (d *Director) Construct() {
 	d.builder.Part3()
 }
 
-/************************* builder1 ************************/
+/************************* 建造1 实现相关部件 ************************/
 
 type Builder1 struct {
 	result string
@@ -47,7 +49,7 @@ func (b *Builder1) GetResult() string {
 	return b.result
 }
 
-/************************* builder2 ************************/
+/************************* 建造2 实现相关部件 ************************/
 
 type Builder2 struct {
 	result int
