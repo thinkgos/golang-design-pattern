@@ -8,21 +8,21 @@
 Go 语言设计模式的实例代码
 
 - #### 创建型模式
-  - [x] 01.简单工厂模式 (Simple Factory)
-  - [x] 02.工厂方法模式 (Factory Method)
-  - [x] 03.抽象工厂模式 (Abstract Factory)
-  - [x] 04.创建者模式 (Builder)
-  - [x] 05.原型模式 (Prototype)
-  - [x] 06.单例模式 (Singleton)
+  - [x] 01.简单工厂模式 (Simple Factory)   NewXXX初始化相关类
+  - [x] 02.工厂方法模式 (Factory Method)   使子类的方式延迟生成对象到子类中实现
+  - [x] 03.抽象工厂模式 (Abstract Factory) 超级工厂为其它工厂的工厂,又称中心工厂
+  - [x] 04.创建者模式 (Builder)  builder一步步创建最终的对象
+  - [x] 05.原型模式 (Prototype)  创建当前对象的克隆,减少开销
+  - [x] 06.单例模式 (Singleton)  确保只有单个对象被创建.
 
 - #### 结构型模式
 
-  - [ ] 01.外观模式 (Facade)
+  - [x] 01.外观模式 (Facade)    隐藏系统复杂性,无需关心底层具体实现,向外提供统一的接口,
   - [ ] 02.适配器模式 (Adapter)
   - [ ] 03.代理模式 (Proxy)
   - [ ] 04.组合模式 (Composite)
-  - [ ] 05.享元模式 (Flyweight)
-  - [x] 06.装饰模式 (Decorator)
+  - [x] 05.享元模式 (Flyweight) 剥离不发生改变且多对象可共享的重复数据,独立出一个享元.
+  - [x] 06.装饰模式 (Decorator) 包装原有的类,保持原有类的完整性前提下,提供额外的功能.
   - [ ] 07.桥接模式 (Bridge)
 
 - #### 行为型模式

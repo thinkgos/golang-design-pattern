@@ -2,9 +2,7 @@ package flyweight
 
 import "fmt"
 
-type ImageFlyweightFactory struct {
-	maps map[string]*ImageFlyweight
-}
+/*********** 重复不变的数据 ******/
 
 // 共享不变的数据,用于复用
 type ImageFlyweight struct {
@@ -21,13 +19,15 @@ func (i *ImageFlyweight) Data() string {
 	return i.data
 }
 
+/***** 单例共享 *****/
+
 // 单例管理共享不变的数据
 var imageFactory = &ImageFlyweightFactory{
 	make(map[string]*ImageFlyweight),
 }
 
-func GetImageFlyweightFactory() *ImageFlyweightFactory {
-	return imageFactory
+type ImageFlyweightFactory struct {
+	maps map[string]*ImageFlyweight
 }
 
 func (f *ImageFlyweightFactory) Get(filename string) *ImageFlyweight {
@@ -39,14 +39,14 @@ func (f *ImageFlyweightFactory) Get(filename string) *ImageFlyweight {
 	return image
 }
 
-// 调用实例
+// 调用实例,调用共享数据
 type ImageViewer struct {
 	*ImageFlyweight
 }
 
 func NewImageViewer(filename string) *ImageViewer {
 	return &ImageViewer{
-		GetImageFlyweightFactory().Get(filename),
+		imageFactory.Get(filename),
 	}
 }
 
