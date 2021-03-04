@@ -3,9 +3,9 @@ package observer
 import "fmt"
 
 type Subject interface {
-	Attach(Observer) //注册观察者
-	Detach(Observer) //释放观察者
-	Notify()         //通知所有注册的观察者
+	Attach(Observer) // 注册观察者
+	Detach(Observer) // 释放观察者
+	Notify()         // 通知所有注册的观察者
 }
 
 // Observer 观察者
